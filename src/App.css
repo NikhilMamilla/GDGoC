@@ -2,8 +2,8 @@
 
 
 /* You can add custom styles here if needed */
-body, html, #root {
-  background-color: black !important;
+html, body, #root {
+  background-color: #000 !important;
   color: white;
   margin: 0;
   padding: 0;
