@@ -72,11 +72,11 @@ const Footer = () => {
               +91 78420 70463
             </a>
             <a 
-              href="mailto:" 
+              href="mailto:gdgoc@bvrit.ac.in" 
               className="flex items-center gap-2 text-gray-300 hover:text-[#4cdef5] transition"
             >
               <FaEnvelope className="w-4 h-4" />
-              mail@gmail.com
+              gdgoc@bvrit.ac.in
             </a>
           </div>
 
