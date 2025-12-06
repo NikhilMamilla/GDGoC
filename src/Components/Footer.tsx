@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { 
-  FaLinkedin, 
-  FaInstagram, 
-  FaTwitter,
+import {
+  FaLinkedin,
+  FaInstagram,
+  FaGithub,
   FaPhone,
   FaEnvelope
 } from "react-icons/fa";
@@ -13,7 +13,7 @@ const Footer = () => {
   return (
     <footer className="w-full bg-black text-white border-t border-[#4cdef5]/20">
       <div className="max-w-7xl mx-auto px-6 py-8">
-        
+
         <div className="flex flex-col gap-y-6 items-center justify-center text-center 
                         md:flex-row md:items-center md:justify-between md:text-left">
 
@@ -36,43 +36,43 @@ const Footer = () => {
 
           {/* Social Icons */}
           <div className="flex items-center justify-center gap-4">
-            <a 
-              href="" 
-              target="_blank" 
+            <a
+              href="https://www.linkedin.com/company/gdg-bvrit"
+              target="_blank"
               rel="noopener noreferrer"
               className="text-gray-300 hover:text-[#4cdef5] transition"
             >
               <FaLinkedin className="w-5 h-5" />
             </a>
-            <a 
-              href="" 
-              target="_blank" 
+            <a
+              href="https://www.instagram.com/gdgc.bvritn"
+              target="_blank"
               rel="noopener noreferrer"
               className="text-gray-300 hover:text-[#4cdef5] transition"
             >
               <FaInstagram className="w-5 h-5" />
             </a>
-            <a 
-              href=""
-              target="_blank" 
+            <a
+              href="https://github.com/gdgoc-bvrit"
+              target="_blank"
               rel="noopener noreferrer"
               className="text-gray-300 hover:text-[#4cdef5] transition"
             >
-              <FaTwitter className="w-5 h-5" />
+              <FaGithub className="w-5 h-5" />
             </a>
           </div>
 
           {/* Contact Info */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-sm">
-            <a 
-              href="tel:+917842070463" 
+            <a
+              href="tel:+917842070463"
               className="flex items-center gap-2 text-gray-300 hover:text-[#4cdef5] transition"
             >
               <FaPhone className="w-4 h-4" />
               +91 78420 70463
             </a>
-            <a 
-              href="mailto:gdgoc@bvrit.ac.in" 
+            <a
+              href="mailto:gdgoc@bvrit.ac.in"
               className="flex items-center gap-2 text-gray-300 hover:text-[#4cdef5] transition"
             >
               <FaEnvelope className="w-4 h-4" />
