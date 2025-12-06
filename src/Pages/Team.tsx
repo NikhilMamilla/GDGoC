@@ -23,7 +23,7 @@ export default function Team() {
     { name: "Ediga Sai Murari Goud", role: "Marketing & Outreach Lead", img: "murari.jpeg", linkedin: "https://www.linkedin.com/in/ediga-sai-murari-goud-a46499293", github: "https://github.com/Saimurarigoud", phone: "6300502920" },
     { name: "Enukonda Siri Chandana", role: "Marketing & Outreach Co-Lead", img: "siri.jpeg", linkedin: "https://www.linkedin.com/in/siri-chandana-enukonda-23b256293/", github: "https://github.com/Siri-1105", phone: "9550257947" },
     { name: "Dubasi Mukundh", role: "PR Lead", img: "mukundh.jpeg", linkedin: "https://www.linkedin.com/in/mukundh-dubasi-7a7158293/", github: "https://github.com/Mukundh15", phone: "7386199296" },
-    { name: "Dannaram Videeksha", role: "PR Co-Lead", img: "videeksha.jpeg", linkedin: "https://www.linkedin.com/in/dvideeksha", github: "https://github.com/Videeksha22", phone: "9014442885" },
+    { name: "Dannaram Videeksha", role: "PR Co-Lead", img: "videeksha.jpg", linkedin: "https://www.linkedin.com/in/dvideeksha", github: "https://github.com/Videeksha22", phone: "9014442885" },
     { name: "Sravya Chowdary", role: "Content & Social Media Lead", img: "sravya.jpeg", linkedin: "https://www.linkedin.com/in/sravya-chowdary0505", github: "https://github.com/sravya5235", phone: "9490122471" },
     { name: "Rishith Reddy Bolledla", role: "Content & Social Media Co-Lead", img: "deputy.jpg", linkedin: "https://www.linkedin.com/in/rishith-reddy-bolledla/", github: "https://github.com/Rishith1705", phone: "9866657145" },
 
