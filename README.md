@@ -1,69 +1,40 @@
-# React + TypeScript + Vite
+# 🌐 GDG On Campus BVRIT — Official Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the official website of **Google Developer Groups (GDG) On Campus — BVRIT Narsapur**!  
+This platform serves as the digital home for our community of developers, innovators, designers, and tech enthusiasts.
 
-Currently, two official plugins are available:
+Our mission is to empower students with the knowledge, tools, and opportunities they need to grow in the field of technology.  
+From events to resources, from team details to contact forms — it’s all here!
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 🎨 Modern UI & UX
+- Fully responsive design  
+- Futuristic dark theme  
+- Smooth animations and gradients  
+- GDG-style neon elements for branding  
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 👥 Team & Community
+- Beautiful team section with grayscale → color hover animations  
+- Clean, card-based layout  
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+### ✉ Contact Section
+- Split layout  
+- Interactive animated **GDG Hover Border Button**  
+- Simple and elegant contact form  
+- Social cards (Instagram, LinkedIn, GitHub, Email)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### 🔗 Social Integrations
+- Instagram: https://www.instagram.com/gdgc.bvritn  
+- LinkedIn: https://www.linkedin.com/company/gdg-bvrit  
+- GitHub: https://github.com/gdgoc-bvrit  
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 🎯 Additional Features
+- Custom reusable UI components  
+- TailwindCSS design system  
+- Dynamic background grid & radial mask  
+- Fully optimized for Next.js / React apps  
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
