@@ -5,11 +5,13 @@ export default function TeamCard({ name, role, img, linkedin, github, phone }) {
   return (
     <div className="relative group">
       {/* Animated Gradient Border */}
-      <div className="
+      <div
+        className="
         absolute -inset-0.5 rounded-2xl opacity-60 
         bg-gradient-to-r from-[#4f4f4f] via-[#7a7a7a] to-[#4f4f4f]
         blur-xl group-hover:opacity-100 transition-all duration-500
-      "></div>
+      "
+      ></div>
 
       {/* Card Container */}
       <div
@@ -23,10 +25,12 @@ export default function TeamCard({ name, role, img, linkedin, github, phone }) {
         "
       >
         {/* Spotlight Glow */}
-        <div className="
+        <div
+          className="
           absolute inset-x-0 -top-6 mx-auto w-40 h-40 
           bg-white/5 rounded-full blur-2xl
-        "></div>
+        "
+        ></div>
 
         {/* Profile Image */}
         <div className="w-full h-64 rounded-xl overflow-hidden shadow-md">
@@ -34,8 +38,9 @@ export default function TeamCard({ name, role, img, linkedin, github, phone }) {
             src={img}
             alt={name}
             className="
-              w-full h-full object-cover 
-              transition-transform duration-500 
+              w-full h-full object-cover
+              filter grayscale group-hover:grayscale-0
+              transition-all duration-500
               group-hover:scale-110
             "
           />
