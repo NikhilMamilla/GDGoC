@@ -1,4 +1,3 @@
-import React from "react";
 import HeadingNText from "../Components/HeadingNText";
 import TeamCard from "../Components/TeamCard";
 import "../index.css";
@@ -17,7 +16,7 @@ export default function Team() {
     { name: "Boddupally Moksha", role: "Logistics & Operations Co-Lead", img: "moksha.jpeg", linkedin: "https://www.linkedin.com/in/boddupally-moksha-7b86b82b5/", github: "https://github.com/BoddupallyMoksha", phone: "7569071330" },
     { name: "Somepalli Gopi Sai Mahesh", role: "Event Management Lead", img: "Mahesh.jpeg", linkedin: "https://www.linkedin.com/in/somepalli-gopi-sai-mahesh-557167293", github: "https://github.com/mahesh1110", phone: "7032623679" },
     { name: "Vallepu Sai Soumya", role: "Event Management Co-Lead", img: "SowmyaE.jpeg", linkedin: "https://www.linkedin.com/in/sai-soumya-vallepu-180486372", github: "https://github.com/SaiSoumya15", phone: "8317602792" },
-    { name: "Muchu Deepak", role: "Event Management Associate", img: "deepak.jpg", linkedin: "", github: "", phone: "9989455751" },
+    { name: "Muchu Deepak", role: "Event Management Associate", img: "deepak.jpg", linkedin: "https://www.linkedin.com/in/deepak-yadav-591161293", github: "https://github.com/deepakyadav79", phone: "9989455751" },
     { name: "Kasani Hansika Goud", role: "Design Lead", img: "hansi.jpeg", linkedin: "https://www.linkedin.com/in/kasani-hansika-3b0973289/", github: "https://github.com/Hansika65?tab=overview&from=2025-12-01&to=2025-12-05", phone: "9381867924" },
     { name: "Madhusudhan Kosari", role: "Design Co-Lead", img: "madhu.jpeg", linkedin: "https://www.linkedin.com/in/madhusudhan-kosari-b28540282", github: "https://github.com/MadhusudhanKosari", phone: "9440007619" },
     { name: "Ediga Sai Murari Goud", role: "Marketing & Outreach Lead", img: "murari.jpeg", linkedin: "https://www.linkedin.com/in/ediga-sai-murari-goud-a46499293", github: "https://github.com/Saimurarigoud", phone: "6300502920" },
