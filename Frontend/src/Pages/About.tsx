@@ -145,7 +145,7 @@ export default function About() {
         </section>
 
         {/* Events Section */}
-        <section className="flex flex-col justify-center items-center px-4 py-12 sm:min-h-screen">
+        {/* <section className="flex flex-col justify-center items-center px-4 py-12 sm:min-h-screen">
           <div className="w-full max-w-5xl bg-[#0e0e0e] border border-white/10 rounded-xl p-8">
             <HeadingNText title="Our Events & Activities" />
             <p className="text-neutral-300 leading-relaxed mt-2">
@@ -162,7 +162,7 @@ export default function About() {
               <li>Global Google Solution Challenge participation</li>
             </ul>
           </div>
-        </section>
+        </section> */}
 
       </div>
     </div>
