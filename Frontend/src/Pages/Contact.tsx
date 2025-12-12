@@ -4,6 +4,7 @@ import HeadingNText from "../Components/HeadingNText";
 import { FaLinkedin, FaInstagram, FaGithub } from "react-icons/fa";
 import { HoverBorderGradient } from "../Components/ui/hover-border-gradient";
 import { useTheme } from "../context/ThemeContext";
+import emailjs from '@emailjs/browser';
 
 export default function Contact() {
   const { theme } = useTheme();
@@ -17,22 +18,25 @@ export default function Contact() {
     const message = (e.target as any)[2].value;
 
     try {
-      const res = await fetch("http://localhost:5000/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, message }),
-      });
+      const templateParams = {
+        from_name: name,
+        from_email: email,
+        reply_to: email,
+        message: message,
+      };
 
-      const data = await res.json();
+      await emailjs.send(
+        "service_08v8wl2",
+        "template_beeyg5h",
+        templateParams,
+        "KsZ1ttmW2FAskvFc7"
+      );
 
-      if (data.success) {
-        alert("Message Sent Successfully!");
-        (e.target as HTMLFormElement).reset();
-      } else {
-        alert("Failed to send message.");
-      }
+      alert("Message Sent Successfully!");
+      (e.target as HTMLFormElement).reset();
     } catch (error) {
-      alert("Server Error. Try again later.");
+      console.error(error);
+      alert("Failed to send message. Try again later.");
     }
   };
 
@@ -233,7 +237,7 @@ export default function Contact() {
                     : 'bg-white border-gray-200'
                     }`}
                 >
-                  <h4 className="text-lg font-semibold mb-2">Dubbasi Mukundh</h4>
+                  <h4 className="text-lg font-semibold mb-2">Dubasi Mukundh</h4>
                   <p className={`text-sm ${theme === 'dark' ? 'text-neutral-400' : 'text-gray-600'}`}>
                     📞 +91 73861 99296
                   </p>
