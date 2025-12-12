@@ -27,7 +27,7 @@ export default function About() {
             </div>
 
             {/* Two Cards */}
-            <div className="w-full pt-6 max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="w-full pt-6 max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-8 px-6">
 
               {/* What we do */}
               <div className={`backdrop-blur-md border rounded-xl p-4 sm:p-8 shadow-lg transition-colors ${theme === 'dark' ? 'bg-[#0e0e0e] border-white/10' : 'bg-white border-gray-200'

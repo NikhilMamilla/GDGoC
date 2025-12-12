@@ -9,6 +9,8 @@ import PillNavbar from "./Components/PillNavbar";
 import Footer from "./Components/Footer";
 import Loader from "./Components/Loader";
 
+import ScrollToTop from "./Components/ScrollToTop";
+
 function App() {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -23,6 +25,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
+        <ScrollToTop />
         <PillNavbar />
         <Routes>
           <Route path="/" element={<Home />} />
