@@ -4,35 +4,129 @@
 @tailwind components;
 @tailwind utilities;
 
+/* CSS Custom Properties for Theme System */
+:root {
+  /* Light Theme Colors (Default from Lighttheme branch) */
+  --bg-primary-light: #F7F3E9;
+  --bg-secondary-light: #FFFFFF;
+  --text-primary-light: #1A1A1A;
+  --text-secondary-light: #4A5568;
+  --footer-bg-light: #F0F4F8;
+  --navbar-bg-light: rgba(255, 255, 255, 0.8);
+  --card-bg-light: #FFFFFF;
+  --border-light: #E2E8F0;
+
+  /* Dark Theme Colors (from Darktheme branch) */
+  --bg-primary-dark: #111827;
+  --bg-secondary-dark: #1F2937;
+  --text-primary-dark: #F9FAFB;
+  --text-secondary-dark: #D1D5DB;
+  --footer-bg-dark: #000000;
+  --navbar-bg-dark: rgba(24, 24, 27, 0.7);
+  --card-bg-dark: #1F2937;
+  --border-dark: rgba(76, 222, 245, 0.2);
+}
+
+/* Light Theme Variables */
+html.light {
+  --bg-primary: var(--bg-primary-light);
+  --bg-secondary: var(--bg-secondary-light);
+  --text-primary: var(--text-primary-light);
+  --text-secondary: var(--text-secondary-light);
+  --footer-bg: var(--footer-bg-light);
+  --navbar-bg: var(--navbar-bg-light);
+  --card-bg: var(--card-bg-light);
+  --border-color: var(--border-light);
+}
+
+/* Dark Theme Variables */
+html.dark {
+  --bg-primary: var(--bg-primary-dark);
+  --bg-secondary: var(--bg-secondary-dark);
+  --text-primary: var(--text-primary-dark);
+  --text-secondary: var(--text-secondary-dark);
+  --footer-bg: var(--footer-bg-dark);
+  --navbar-bg: var(--navbar-bg-dark);
+  --card-bg: var(--card-bg-dark);
+  --border-color: var(--border-dark);
+}
+
 @layer base {
   * {
     scroll-behavior: smooth;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
   }
-  
+
+  html {
+    background-color: var(--bg-primary);
+  }
+
   body {
     font-family: 'Inter', sans-serif;
-    @apply bg-gray-50;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
-  
-  h1, h2, h3, h4, h5, h6 {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: 'Poppins', sans-serif;
+    color: var(--text-primary);
   }
 }
 
 @layer utilities {
+
+  /* Google Brand Gradient for text */
   .text-gradient {
-    @apply bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent;
+    background: linear-gradient(to right, #4285F4, #EA4335, #FBBC04, #34A853);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
-  
+
+  /* Theme-aware background utilities */
+  .bg-theme-primary {
+    background-color: var(--bg-primary);
+  }
+
+  .bg-theme-secondary {
+    background-color: var(--bg-secondary);
+  }
+
+  .bg-theme-card {
+    background-color: var(--card-bg);
+  }
+
+  /* Theme-aware text utilities */
+  .text-theme-primary {
+    color: var(--text-primary);
+  }
+
+  .text-theme-secondary {
+    color: var(--text-secondary);
+  }
+
+  /* Theme-aware border utilities */
+  .border-theme {
+    border-color: var(--border-color);
+  }
+
   .animate-fade-in {
     animation: fadeIn 1s ease-in-out;
   }
-  
+
   @keyframes fadeIn {
     from {
       opacity: 0;
       transform: translateY(20px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);

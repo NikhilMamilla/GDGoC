@@ -1,6 +1,9 @@
 import HeadingNText from "../Components/HeadingNText";
+import { useTheme } from "../context/ThemeContext";
 
 export default function Events() {
+  const { theme } = useTheme();
+
   const upcomingEvents = [
     {
       title: "GDG InnovateX Hackathon – Powered by Hack2Skill",
@@ -37,7 +40,8 @@ export default function Events() {
   ];
 
   return (
-    <div className="relative w-full min-h-screen bg-black text-white overflow-hidden">
+    <div className={`relative w-full min-h-screen overflow-hidden transition-colors ${theme === 'dark' ? 'bg-black text-white' : 'bg-[#F7F3E9] text-gray-900'
+      }`}>
 
       {/* Background Grid */}
       <div className="absolute inset-0 -z-10 
@@ -80,11 +84,10 @@ export default function Events() {
 
               {/* STATUS BADGE */}
               <span
-                className={`text-xs px-3 py-1 font-bold rounded-full ${
-                  ev.status === "ONGOING"
+                className={`text-xs px-3 py-1 font-bold rounded-full ${ev.status === "ONGOING"
                     ? "bg-yellow-400 text-black"
                     : "bg-green-400 text-black"
-                }`}
+                  }`}
               >
                 {ev.status}
               </span>
@@ -121,11 +124,11 @@ export default function Events() {
             rounded-2xl overflow-hidden shadow-xl mt-10
             p-6 md:p-10 text-center"
           >
-            
+
             {/* Big Banner */}
             <div className="w-full h-80 rounded-xl overflow-hidden mb-8">
-              <img 
-                src="pe2.jpg" 
+              <img
+                src="pe2.jpg"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -145,8 +148,8 @@ export default function Events() {
             <p className="text-neutral-400 text-lg">⏰ 02:00 PM – 03:30 PM</p>
 
             <p className="text-neutral-300 mt-6 leading-relaxed max-w-3xl mx-auto text-lg">
-              The first-ever GDG On Campus event by BVRIT! 🎉  
-              Speakers <b>Ashutosh Bhakare</b> & <b>Rachana Bhakare</b> delivered a powerful 
+              The first-ever GDG On Campus event by BVRIT! 🎉
+              Speakers <b>Ashutosh Bhakare</b> & <b>Rachana Bhakare</b> delivered a powerful
               hands-on AI workshop introducing cutting-edge ML and real-world AI applications.
             </p>
 

@@ -7,11 +7,16 @@ import {
   FaPhone,
   FaEnvelope
 } from "react-icons/fa";
+import { useTheme } from "../context/ThemeContext";
 
 const Footer = () => {
+  const { theme } = useTheme();
 
   return (
-    <footer className="w-full bg-black text-white border-t border-[#4cdef5]/20">
+    <footer className={`w-full border-t transition-colors ${theme === 'dark'
+      ? 'bg-black text-white border-[#4cdef5]/20'
+      : 'bg-[#F0F4F8] text-gray-900 border-gray-300'
+      }`}>
       <div className="max-w-7xl mx-auto px-6 py-8">
 
         <div className="flex flex-col gap-y-6 items-center justify-center text-center 
@@ -27,11 +32,16 @@ const Footer = () => {
 
           {/* Navigation */}
           <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-base">
-            <Link to="/" className="text-gray-300 hover:text-[#4cdef5] transition">Home</Link>
-            <Link to="/about" className="text-gray-300 hover:text-[#4cdef5] transition">About</Link>
-            <Link to="/team" className="text-gray-300 hover:text-[#4cdef5] transition">Team</Link>
-            <Link to="/events" className="text-gray-300 hover:text-[#4cdef5] transition">Events</Link>
-            <Link to="/contact-us" className="text-gray-300 hover:text-[#4cdef5] transition">Contact</Link>
+            <Link to="/" className={`transition ${theme === 'dark' ? 'text-gray-300 hover:text-[#4cdef5]' : 'text-gray-700 hover:text-blue-500'
+              }`}>Home</Link>
+            <Link to="/about" className={`transition ${theme === 'dark' ? 'text-gray-300 hover:text-[#4cdef5]' : 'text-gray-700 hover:text-blue-500'
+              }`}>About</Link>
+            <Link to="/team" className={`transition ${theme === 'dark' ? 'text-gray-300 hover:text-[#4cdef5]' : 'text-gray-700 hover:text-blue-500'
+              }`}>Team</Link>
+            <Link to="/events" className={`transition ${theme === 'dark' ? 'text-gray-300 hover:text-[#4cdef5]' : 'text-gray-700 hover:text-blue-500'
+              }`}>Events</Link>
+            <Link to="/contact-us" className={`transition ${theme === 'dark' ? 'text-gray-300 hover:text-[#4cdef5]' : 'text-gray-700 hover:text-blue-500'
+              }`}>Contact</Link>
           </div>
 
           {/* Social Icons */}
@@ -40,7 +50,8 @@ const Footer = () => {
               href="https://www.linkedin.com/company/gdg-bvrit"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-300 hover:text-[#4cdef5] transition"
+              className={`transition ${theme === 'dark' ? 'text-gray-300 hover:text-[#4cdef5]' : 'text-gray-700 hover:text-blue-500'
+                }`}
             >
               <FaLinkedin className="w-5 h-5" />
             </a>
@@ -48,7 +59,8 @@ const Footer = () => {
               href="https://www.instagram.com/gdgc.bvritn"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-300 hover:text-[#4cdef5] transition"
+              className={`transition ${theme === 'dark' ? 'text-gray-300 hover:text-[#4cdef5]' : 'text-gray-700 hover:text-blue-500'
+                }`}
             >
               <FaInstagram className="w-5 h-5" />
             </a>
@@ -56,7 +68,8 @@ const Footer = () => {
               href="https://github.com/gdgoc-bvrit"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-300 hover:text-[#4cdef5] transition"
+              className={`transition ${theme === 'dark' ? 'text-gray-300 hover:text-[#4cdef5]' : 'text-gray-700 hover:text-blue-500'
+                }`}
             >
               <FaGithub className="w-5 h-5" />
             </a>
@@ -66,14 +79,16 @@ const Footer = () => {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-sm">
             <a
               href="tel:+917842070463"
-              className="flex items-center gap-2 text-gray-300 hover:text-[#4cdef5] transition"
+              className={`flex items-center gap-2 transition ${theme === 'dark' ? 'text-gray-300 hover:text-[#4cdef5]' : 'text-gray-700 hover:text-blue-500'
+                }`}
             >
               <FaPhone className="w-4 h-4" />
               +91 78420 70463
             </a>
             <a
               href="mailto:gdgoc@bvrit.ac.in"
-              className="flex items-center gap-2 text-gray-300 hover:text-[#4cdef5] transition"
+              className={`flex items-center gap-2 transition ${theme === 'dark' ? 'text-gray-300 hover:text-[#4cdef5]' : 'text-gray-700 hover:text-blue-500'
+                }`}
             >
               <FaEnvelope className="w-4 h-4" />
               gdgoc@bvrit.ac.in
@@ -82,7 +97,8 @@ const Footer = () => {
 
         </div>
 
-        <div className="mt-6 pt-4 border-t border-white/10 text-center text-sm text-gray-400">
+        <div className={`mt-6 pt-4 border-t text-center text-sm ${theme === 'dark' ? 'border-white/10 text-gray-400' : 'border-gray-300 text-gray-600'
+          }`}>
           © 2026 GDG on Campus BVRIT. All rights reserved.
         </div>
 

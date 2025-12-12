@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTheme } from "../context/ThemeContext";
+import { FaSun, FaMoon } from "react-icons/fa";
 
 const navItems = ["Home", "About", "Team", "Events", "Contact Us"];
 
@@ -9,6 +11,7 @@ const PillNavbar = () => {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -75,13 +78,31 @@ const PillNavbar = () => {
 
       {/* Mobile Hamburger */}
       <div
-        className={`fixed top-5 left-5 z-[70] md:hidden transition-all duration-300 ${
-          showNavbar || mobileMenuOpen
-            ? "opacity-100 translate-y-0"
-            : "opacity-0 -translate-y-full"
-        }`}
+        className={`fixed top-5 left-5 z-[70] md:hidden transition-all duration-300 ${showNavbar || mobileMenuOpen
+          ? "opacity-100 translate-y-0"
+          : "opacity-0 -translate-y-full"
+          }`}
       >
-        <HamburgerButton open={mobileMenuOpen} setOpen={toggleMobileMenu} />
+        <HamburgerButton open={mobileMenuOpen} setOpen={toggleMobileMenu} theme={theme} />
+      </div>
+
+      {/* Mobile Theme Toggle */}
+      <div
+        className={`fixed top-5 right-5 z-[70] md:hidden transition-all duration-300 ${showNavbar || mobileMenuOpen
+          ? "opacity-100 translate-y-0"
+          : "opacity-0 -translate-y-full"
+          }`}
+      >
+        <button
+          onClick={toggleTheme}
+          className={`p-3 rounded-full backdrop-blur transition-all ${theme === 'dark'
+            ? 'bg-zinc-900/70 text-yellow-400'
+            : 'bg-white/80 text-orange-500 shadow-lg'
+            }`}
+          aria-label="Toggle theme"
+        >
+          {theme === 'dark' ? <FaSun className="w-5 h-5" /> : <FaMoon className="w-5 h-5" />}
+        </button>
       </div>
 
       {/* Mobile Menu */}
@@ -91,9 +112,11 @@ const PillNavbar = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[60] bg-zinc-950/90 backdrop-blur flex flex-col items-center justify-center md:hidden"
+            className={`fixed inset-0 z-[60] backdrop-blur flex flex-col items-center justify-center md:hidden ${theme === 'dark' ? 'bg-zinc-950/90' : 'bg-white/95'
+              }`}
           >
-            <ul className="space-y-8 text-2xl text-zinc-100 font-light">
+            <ul className={`space-y-8 text-2xl font-light ${theme === 'dark' ? 'text-zinc-100' : 'text-gray-900'
+              }`}>
               {navItems.map((label) => {
                 const path =
                   label === "Home"
@@ -104,7 +127,8 @@ const PillNavbar = () => {
                   <li key={label}>
                     <Link
                       to={path}
-                      className="hover:text-cyan-400 transition"
+                      className={`transition ${theme === 'dark' ? 'hover:text-cyan-400' : 'hover:text-blue-500'
+                        }`}
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {label}
@@ -120,33 +144,37 @@ const PillNavbar = () => {
   );
 };
 
-const HamburgerButton = ({ open, setOpen }) => (
+interface HamburgerButtonProps {
+  open: boolean;
+  setOpen: () => void;
+  theme: 'light' | 'dark';
+}
+
+const HamburgerButton: React.FC<HamburgerButtonProps> = ({ open, setOpen, theme }) => (
   <button
     aria-label={open ? "Close menu" : "Open menu"}
     className="w-12 h-12 flex flex-col justify-center items-center"
     onClick={setOpen}
   >
     <span
-      className={`w-8 h-1 bg-white rounded transition-all ${
-        open ? "rotate-45 translate-y-2" : ""
-      }`}
+      className={`w-8 h-1 rounded transition-all ${theme === 'dark' ? 'bg-white' : 'bg-gray-900'
+        } ${open ? "rotate-45 translate-y-2" : ""}`}
     ></span>
     <span
-      className={`w-8 h-1 bg-white rounded my-1 transition-all ${
-        open ? "opacity-0" : ""
-      }`}
+      className={`w-8 h-1 rounded my-1 transition-all ${theme === 'dark' ? 'bg-white' : 'bg-gray-900'
+        } ${open ? "opacity-0" : ""}`}
     ></span>
     <span
-      className={`w-8 h-1 bg-white rounded transition-all ${
-        open ? "-rotate-45 -translate-y-2" : ""
-      }`}
+      className={`w-8 h-1 rounded transition-all ${theme === 'dark' ? 'bg-white' : 'bg-gray-900'
+        } ${open ? "-rotate-45 -translate-y-2" : ""}`}
     ></span>
   </button>
 );
 
 const SlideTabs = () => {
   const location = useLocation();
-  const tabRefs = useRef([]);
+  const { theme, toggleTheme } = useTheme();
+  const tabRefs = useRef<(HTMLLIElement | null)[]>([]);
   const [position, setPosition] = useState({
     left: 0,
     width: 0,
@@ -178,36 +206,56 @@ const SlideTabs = () => {
   }, [location.pathname, activeLabel]);
 
   return (
-    <ul className="relative flex bg-zinc-900/70 backdrop-blur px-2 py-2 rounded-full space-x-1">
-      {navItems.map((label, index) => {
-        const path =
-          label === "Home"
-            ? "/"
-            : `/${label.toLowerCase().replace(/\s+/g, "-")}`;
+    <div className="flex items-center gap-3">
+      <ul className={`relative flex backdrop-blur px-2 py-2 rounded-full space-x-1 transition-colors ${theme === 'dark' ? 'bg-zinc-900/70' : 'bg-white/80 shadow-lg'
+        }`}>
+        {navItems.map((label, index) => {
+          const path =
+            label === "Home"
+              ? "/"
+              : `/${label.toLowerCase().replace(/\s+/g, "-")}`;
 
-        return (
-          <li
-            key={label}
-            ref={(el) => (tabRefs.current[index] = el)}
-            className={`relative z-10 px-5 uppercase flex items-center h-10 cursor-pointer ${
-              activeLabel === label
-                ? "text-white font-medium"
-                : "text-zinc-400"
-            }`}
-          >
-            <Link to={path}>{label}</Link>
-          </li>
-        );
-      })}
-      <Cursor position={position} />
-    </ul>
+          return (
+            <li
+              key={label}
+              ref={(el) => (tabRefs.current[index] = el)}
+              className={`relative z-10 px-5 uppercase flex items-center h-10 cursor-pointer transition-colors ${activeLabel === label
+                ? theme === 'dark' ? "text-white font-medium" : "text-gray-900 font-medium"
+                : theme === 'dark' ? "text-zinc-400" : "text-gray-500"
+                }`}
+            >
+              <Link to={path}>{label}</Link>
+            </li>
+          );
+        })}
+        <Cursor position={position} theme={theme} />
+      </ul>
+
+      {/* Theme Toggle Button */}
+      <button
+        onClick={toggleTheme}
+        className={`p-3 rounded-full backdrop-blur transition-all ${theme === 'dark'
+          ? 'bg-zinc-900/70 text-yellow-400 hover:bg-zinc-800'
+          : 'bg-white/80 text-orange-500 hover:bg-gray-100 shadow-lg'
+          }`}
+        aria-label="Toggle theme"
+      >
+        {theme === 'dark' ? <FaSun className="w-5 h-5" /> : <FaMoon className="w-5 h-5" />}
+      </button>
+    </div>
   );
 };
 
-const Cursor = ({ position }) => (
+interface CursorProps {
+  position: { left: number; width: number; opacity: number };
+  theme: 'light' | 'dark';
+}
+
+const Cursor: React.FC<CursorProps> = ({ position, theme }) => (
   <motion.li
     animate={position}
-    className="absolute h-10 bg-zinc-600/70 rounded-full"
+    className={`absolute h-10 rounded-full transition-colors ${theme === 'dark' ? 'bg-zinc-600/70' : 'bg-blue-500/70'
+      }`}
   />
 );
 

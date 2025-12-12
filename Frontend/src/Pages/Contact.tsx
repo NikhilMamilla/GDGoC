@@ -3,8 +3,10 @@ import React from "react";
 import HeadingNText from "../Components/HeadingNText";
 import { FaLinkedin, FaInstagram, FaGithub } from "react-icons/fa";
 import { HoverBorderGradient } from "../Components/ui/hover-border-gradient";
+import { useTheme } from "../context/ThemeContext";
 
 export default function Contact() {
+  const { theme } = useTheme();
 
   // -------- HANDLE CONTACT FORM SUBMIT --------
   const handleSubmit = async (e) => {
@@ -35,7 +37,8 @@ export default function Contact() {
   };
 
   return (
-    <div className="relative w-full min-h-screen bg-black text-white overflow-hidden">
+    <div className={`relative w-full min-h-screen overflow-hidden transition-colors ${theme === 'dark' ? 'bg-black text-white' : 'bg-[#F7F3E9] text-gray-900'
+      }`}>
 
       {/* Background Grid */}
       <div
@@ -53,7 +56,7 @@ export default function Contact() {
 
       {/* Main Content */}
       <div className="relative z-20 w-full flex flex-col items-center py-16 px-6">
-        
+
         <HeadingNText title="Contact Us" />
 
         <p className="text-neutral-300 text-center max-w-2xl mb-10">

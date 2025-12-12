@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "../index.css";
 import HeadingNText from "../Components/HeadingNText";
+import { useTheme } from "../context/ThemeContext";
 
 export default function About() {
   const [isMobile, setIsMobile] = useState(false);
+  const { theme } = useTheme();
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
@@ -13,10 +15,17 @@ export default function About() {
   }, []);
 
   return (
-    <div className="relative w-full min-h-screen bg-black text-white" style={{ scrollBehavior: "smooth" }}>
+    <div className={`relative w-full min-h-screen transition-colors ${theme === 'dark' ? 'bg-black text-white' : 'bg-[#F7F3E9] text-gray-900'
+      }`} style={{ scrollBehavior: "smooth" }}>
       {/* Grid Background */}
-      <div className="absolute inset-0 [background-size:40px_40px] [background-image:linear-gradient(to_right,#262626_1px,transparent_1px),linear-gradient(to_bottom,#262626_1px,transparent_1px)]" />
-      <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
+      <div className={`absolute inset-0 [background-size:40px_40px] ${theme === 'dark'
+        ? '[background-image:linear-gradient(to_right,#262626_1px,transparent_1px),linear-gradient(to_bottom,#262626_1px,transparent_1px)]'
+        : '[background-image:linear-gradient(to_right,#e5e5e5_1px,transparent_1px),linear-gradient(to_bottom,#e5e5e5_1px,transparent_1px)]'
+        }`} />
+      <div className={` pointer-events-none absolute inset-0 flex items-center justify-center ${theme === 'dark'
+        ? 'bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]'
+        : 'bg-[#F7F3E9] [mask-image:radial-gradient(ellipse_at_center,transparent_20%,#F7F3E9)]'
+        }`} />
 
       <div className="relative z-20">
 
@@ -29,9 +38,9 @@ export default function About() {
                 <span className="block">
                   Google Developer Groups on Campus (GDGOC) at BVRIT is a vibrant student tech community
                   dedicated to helping learners explore Google technologies, grow their skills, and build
-                  impactful solutions.  
+                  impactful solutions.
                   <br />
-                  Our mission is to empower students through hands-on learning, collaboration, and 
+                  Our mission is to empower students through hands-on learning, collaboration, and
                   real-world project development — shaping the next generation of developers and innovators.
                 </span>
               </HeadingNText>
@@ -39,15 +48,19 @@ export default function About() {
 
             {/* Two Cards */}
             <div className="w-full pt-6 max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-8">
-              
+
               {/* What we do */}
-              <div className="bg-[#0e0e0e] backdrop-blur-md border border-white/10 rounded-xl p-4 sm:p-8 shadow-lg">
-                <h3 className="text-xl sm:text-2xl font-bold text-center mb-4 text-neutral-100">What We Do</h3>
-                <p className="text-neutral-300 text-center sm:text-left mb-4">
+              <div className={`backdrop-blur-md border rounded-xl p-4 sm:p-8 shadow-lg transition-colors ${theme === 'dark' ? 'bg-[#0e0e0e] border-white/10' : 'bg-white border-gray-200'
+                }`}>
+                <h3 className={`text-xl sm:text-2xl font-bold text-center mb-4 ${theme === 'dark' ? 'text-neutral-100' : 'text-gray-900'
+                  }`}>What We Do</h3>
+                <p className={`text-center sm:text-left mb-4 ${theme === 'dark' ? 'text-neutral-300' : 'text-gray-700'
+                  }`}>
                   GDG On Campus provides opportunities for students to explore Google technologies,
                   participate in developer programs, and build meaningful projects with community support.
                 </p>
-                <ul className="list-disc pl-5 space-y-2 text-neutral-300">
+                <ul className={`list-disc pl-5 space-y-2 ${theme === 'dark' ? 'text-neutral-300' : 'text-gray-700'
+                  }`}>
                   <li>Hands-on workshops on Flutter, Firebase, TensorFlow & Google Cloud</li>
                   <li>Google Study Jams & peer-to-peer learning sessions</li>
                   <li>Hackathons, design sprints & community meetups</li>
@@ -56,8 +69,10 @@ export default function About() {
               </div>
 
               {/* Our Values */}
-              <div className="bg-[#0e0e0e] backdrop-blur-md border border-white/10 rounded-xl p-4 sm:p-8 shadow-lg">
-                <h3 className="text-xl sm:text-2xl font-bold text-center mb-4 text-neutral-100">Our Values</h3>
+              <div className={`backdrop-blur-md border rounded-xl p-4 sm:p-8 shadow-lg transition-colors ${theme === 'dark' ? 'bg-[#0e0e0e] border-white/10' : 'bg-white border-gray-200'
+                }`}>
+                <h3 className={`text-xl sm:text-2xl font-bold text-center mb-4 ${theme === 'dark' ? 'text-neutral-100' : 'text-gray-900'
+                  }`}>Our Values</h3>
 
                 <div className="relative w-full flex min-h-[220px]">
 
@@ -109,36 +124,36 @@ export default function About() {
 
             {/* Faculty 1 */}
             <div className="flex flex-col items-center">
-                <div
-                    className={`${isMobile ? "h-[280px] w-[230px]" : "h-[370px] w-[300px]"} 
+              <div
+                className={`${isMobile ? "h-[280px] w-[230px]" : "h-[370px] w-[300px]"} 
                     bg-[#0e0e0e] rounded-xl border border-white/10 shadow-lg overflow-hidden`}
-                >
-                    <img
-                    src="./madhu_babu.jpg"
-                    alt="Faculty Mentor"
-                    className="w-full h-full object-cover"
-                    />
-                </div>
+              >
+                <img
+                  src="./madhu_babu.jpg"
+                  alt="Faculty Mentor"
+                  className="w-full h-full object-cover"
+                />
+              </div>
 
-                <div className="mt-3 text-lg font-semibold">Dr. Ch. Madhu Babu</div>
-                <div className="text-sm text-blue-400">Head of Dept. CSE</div>
+              <div className="mt-3 text-lg font-semibold">Dr. Ch. Madhu Babu</div>
+              <div className="text-sm text-blue-400">Head of Dept. CSE</div>
             </div>
 
             {/* Faculty 2 */}
             <div className="flex flex-col items-center">
-                <div
-                    className={`${isMobile ? "h-[280px] w-[230px]" : "h-[370px] w-[300px]"} 
+              <div
+                className={`${isMobile ? "h-[280px] w-[230px]" : "h-[370px] w-[300px]"} 
                     bg-[#0e0e0e] rounded-xl border border-white/10 shadow-lg overflow-hidden`}
-                >
-                    <img
-                    src="./pallavi.jpg"
-                    alt="Faculty Mentor"
-                    className="w-full h-full object-cover"
-                    />
-                </div>
+              >
+                <img
+                  src="./pallavi.jpg"
+                  alt="Faculty Mentor"
+                  className="w-full h-full object-cover"
+                />
+              </div>
 
-                <div className="mt-3 text-lg font-semibold">Dr. L. Pallavi</div>
-                <div className="text-sm text-blue-400">Associate Head of Dept. CSE</div>
+              <div className="mt-3 text-lg font-semibold">Dr. L. Pallavi</div>
+              <div className="text-sm text-blue-400">Associate Head of Dept. CSE</div>
             </div>
 
           </div>

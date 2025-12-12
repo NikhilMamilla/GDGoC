@@ -1,8 +1,10 @@
 import HeadingNText from "../Components/HeadingNText";
 import TeamCard from "../Components/TeamCard";
 import "../index.css";
+import { useTheme } from "../context/ThemeContext";
 
 export default function Team() {
+  const { theme } = useTheme();
 
   const team2026 = [
     { name: "Nikhil Mamilla", role: "Organizer", img: "nikhil.png", linkedin: "www.linkedin.com/in/nikhil-mamilla-823922289", github: "https://github.com/NikhilMamilla", phone: "7842070463" },
@@ -25,29 +27,18 @@ export default function Team() {
     { name: "Dannaram Videeksha", role: "PR Co-Lead", img: "videeksha.jpg", linkedin: "https://www.linkedin.com/in/dvideeksha", github: "https://github.com/Videeksha22", phone: "9014442885" },
     { name: "Sravya Chowdary", role: "Content & Social Media Lead", img: "sravya.jpeg", linkedin: "https://www.linkedin.com/in/sravya-chowdary0505", github: "https://github.com/sravya5235", phone: "9490122471" },
     { name: "Rishith Reddy Bolledla", role: "Content & Social Media Co-Lead", img: "deputy.jpg", linkedin: "https://www.linkedin.com/in/rishith-reddy-bolledla/", github: "https://github.com/Rishith1705", phone: "9866657145" },
-
   ];
-
 
   const remainingRows = team2026;
 
   return (
-    <div className="relative w-full min-h-screen bg-black text-white overflow-hidden">
-
-      {/* Background + Mask omitted for clarity */}
+    <div className={`relative w-full min-h-screen overflow-hidden transition-colors ${theme === 'dark' ? 'bg-black text-white' : 'bg-[#F7F3E9] text-gray-900'
+      }`}>
 
       <div className="relative z-20 flex flex-col items-center justify-center py-16">
 
         <HeadingNText title="GDG Team 2026" />
 
-        {/* ⭐ FIRST ROW (exactly 3 cards) */}
-        {/* <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-6">
-          {firstRow.map((m, i) => (
-            <TeamCard key={i} {...m} />
-          ))}
-        </div> */}
-
-        {/* ⭐ NEXT ROWS (4 per row) */}
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-6">
           {remainingRows.map((m, i) => (
             <TeamCard key={i} {...m} />
