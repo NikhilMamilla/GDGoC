@@ -29,7 +29,7 @@ export default function Events() {
   ];
 
   return (
-    <div className={`relative w-full min-h-screen overflow-hidden transition-colors ${theme === 'dark' ? 'bg-black text-white' : 'bg-[#F7F3E9] text-gray-900'
+    <div className={`relative w-full min-h-screen min-h-[100dvh] overflow-hidden transition-colors ${theme === 'dark' ? 'bg-black text-white' : 'bg-[#F7F3E9] text-gray-900'
       }`}>
 
       {/* Background Grid */}

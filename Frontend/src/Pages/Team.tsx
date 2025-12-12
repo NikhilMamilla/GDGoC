@@ -32,7 +32,7 @@ export default function Team() {
   const remainingRows = team2026;
 
   return (
-    <div className={`relative w-full min-h-screen overflow-hidden transition-colors ${theme === 'dark' ? 'bg-black text-white' : 'bg-[#F7F3E9] text-gray-900'
+    <div className={`relative w-full min-h-screen min-h-[100dvh] overflow-hidden transition-colors ${theme === 'dark' ? 'bg-black text-white' : 'bg-[#F7F3E9] text-gray-900'
       }`}>
 
       <div className="relative z-20 flex flex-col items-center justify-center py-16">

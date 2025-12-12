@@ -8,7 +8,7 @@ export default function About() {
   const { theme } = useTheme();
 
   return (
-    <div className={`relative w-full min-h-screen transition-colors ${theme === 'dark' ? 'bg-black text-white' : 'bg-[#F7F3E9] text-gray-900'
+    <div className={`relative w-full min-h-screen min-h-[100dvh] transition-colors ${theme === 'dark' ? 'bg-black text-white' : 'bg-[#F7F3E9] text-gray-900'
       }`} style={{ scrollBehavior: "smooth" }}>
 
       <div className="relative z-20">

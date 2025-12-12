@@ -37,7 +37,7 @@ export default function Contact() {
   };
 
   return (
-    <div className={`relative w-full min-h-screen overflow-hidden transition-colors ${theme === 'dark' ? 'bg-black text-white' : 'bg-[#F7F3E9] text-gray-900'
+    <div className={`relative w-full min-h-screen min-h-[100dvh] overflow-hidden transition-colors ${theme === 'dark' ? 'bg-black text-white' : 'bg-[#F7F3E9] text-gray-900'
       }`}>
 
       {/* Background Grid */}
@@ -216,8 +216,8 @@ export default function Contact() {
                 {/* Developer 1 - Nikhil Mamilla */}
                 <div
                   className={`border rounded-xl p-6 shadow-md ${theme === 'dark'
-                      ? 'bg-[#101010] border-white/10'
-                      : 'bg-white border-gray-200'
+                    ? 'bg-[#101010] border-white/10'
+                    : 'bg-white border-gray-200'
                     }`}
                 >
                   <h4 className="text-lg font-semibold mb-2">Nikhil Mamilla</h4>
@@ -229,8 +229,8 @@ export default function Contact() {
                 {/* Developer 2 - Dubbasi Mukundh */}
                 <div
                   className={`border rounded-xl p-6 shadow-md ${theme === 'dark'
-                      ? 'bg-[#101010] border-white/10'
-                      : 'bg-white border-gray-200'
+                    ? 'bg-[#101010] border-white/10'
+                    : 'bg-white border-gray-200'
                     }`}
                 >
                   <h4 className="text-lg font-semibold mb-2">Dubbasi Mukundh</h4>
