@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
 import About from "./Pages/About";
@@ -6,7 +7,19 @@ import Events from "./Pages/Events";
 import Contact from "./Pages/Contact";
 import PillNavbar from "./Components/PillNavbar";
 import Footer from "./Components/Footer";
+import Loader from "./Components/Loader";
+
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  const handleLoadingComplete = () => {
+    setIsLoading(false);
+  };
+
+  if (isLoading) {
+    return <Loader onLoadingComplete={handleLoadingComplete} />;
+  }
+
   return (
     <>
       <BrowserRouter>
@@ -18,7 +31,7 @@ function App() {
           <Route path="/events" element={<Events />} />
           <Route path="/contact-us" element={<Contact />} />
         </Routes>
-        <Footer/>
+        <Footer />
       </BrowserRouter>
     </>
   );

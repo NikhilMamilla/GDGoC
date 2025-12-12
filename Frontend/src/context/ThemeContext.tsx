@@ -15,16 +15,27 @@ interface ThemeProviderProps {
     children: ReactNode;
 }
 
-export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
-    // Initialize theme from localStorage or default to 'dark' (current Darktheme branch)
-    const [theme, setThemeState] = useState<Theme>(() => {
+// Get initial theme synchronously from localStorage
+const getInitialTheme = (): Theme => {
+    try {
         const savedTheme = localStorage.getItem('gdgoc-theme') as Theme | null;
         return savedTheme || 'dark';
-    });
+    } catch {
+        return 'dark';
+    }
+};
+
+export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
+    // Initialize theme synchronously from localStorage
+    const [theme, setThemeState] = useState<Theme>(getInitialTheme());
 
     // Update localStorage and document class when theme changes
     useEffect(() => {
-        localStorage.setItem('gdgoc-theme', theme);
+        try {
+            localStorage.setItem('gdgoc-theme', theme);
+        } catch (error) {
+            console.error('Failed to save theme to localStorage:', error);
+        }
 
         // Update HTML element class for global styling
         const root = document.documentElement;
