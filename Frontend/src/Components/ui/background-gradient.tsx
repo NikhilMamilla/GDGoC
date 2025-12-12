@@ -1,11 +1,17 @@
-import React from "react";
 import { cn } from "../ui/utils";
+import React from "react";
+
+interface BackgroundGradientProps {
+  children?: React.ReactNode;
+  className?: string;
+  containerClassName?: string;
+}
 
 export function BackgroundGradient({
   children,
   className,
   containerClassName,
-}) {
+}: BackgroundGradientProps) {
   return (
     <div className={cn("relative p-[1px] w-full rounded-2xl", containerClassName)}>
       {/* Outer gradient ring */}

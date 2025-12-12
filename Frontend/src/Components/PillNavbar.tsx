@@ -38,7 +38,7 @@ const PillNavbar = () => {
   }, [lastScrollY, mobileMenuOpen]);
 
   useEffect(() => {
-    let mouseTimer: NodeJS.Timeout;
+    let mouseTimer: ReturnType<typeof setTimeout>;
     const handleMouseMove = () => {
       if (!mobileMenuOpen) {
         setShowNavbar(true);
@@ -218,7 +218,7 @@ const SlideTabs = () => {
           return (
             <li
               key={label}
-              ref={(el) => (tabRefs.current[index] = el)}
+              ref={(el) => { if (el) tabRefs.current[index] = el }}
               className={`relative z-10 px-5 uppercase flex items-center h-10 cursor-pointer transition-colors ${activeLabel === label
                 ? theme === 'dark' ? "text-white font-medium" : "text-gray-900 font-medium"
                 : theme === 'dark' ? "text-zinc-400" : "text-gray-500"
