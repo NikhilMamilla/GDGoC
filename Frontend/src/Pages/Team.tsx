@@ -7,7 +7,7 @@ export default function Team() {
   const { theme } = useTheme();
 
   const team2026 = [
-    { name: "Nikhil Mamilla", role: "Organizer", img: "nikhil.png", linkedin: "www.linkedin.com/in/nikhil-mamilla-823922289", github: "https://github.com/NikhilMamilla", phone: "7842070463" },
+    { name: "Nikhil Mamilla", role: "Organizer", img: "Nikhil.png", linkedin: "www.linkedin.com/in/nikhil-mamilla-823922289", github: "https://github.com/NikhilMamilla", phone: "7842070463" },
     { name: "Gadila Sowmya", role: "Co-Organizer", img: "SowmyaG.jpeg", linkedin: "https://www.linkedin.com/in/sowmya-gadila", github: "https://github.com/GadilaSowmya", phone: "6305055156" },
     { name: "SreeMouna Gopireddy", role: "Facilitator", img: "mouna.jpg", linkedin: "https://www.linkedin.com/in/sreemouna-gopireddy", github: "https://github.com/sreemouna", phone: "7799300313" },
     { name: "Chanagari Nandini", role: "Videography & Editing Lead", img: "nandini.jpeg", linkedin: "https://www.linkedin.com/in/chanagari-nandini-95a309304/", github: "https://github.com/23211A0552", phone: "7799008029" },
@@ -44,8 +44,11 @@ export default function Team() {
             <TeamCard key={i} {...m} />
           ))}
         </div>
-
       </div>
+
+      {/* Gradient transition to footer - positioned at bottom */}
+      <div className={`absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent pointer-events-none ${theme === 'dark' ? 'to-black' : 'to-[#F0F4F8]'
+        }`}></div>
     </div>
   );
 }
