@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../index.css";
 import HeadingNText from "../Components/HeadingNText";
 import { useTheme } from "../context/ThemeContext";
+import { HoverBorderGradient } from "../Components/ui/hover-border-gradient";
 
 export default function About() {
   const [isMobile, setIsMobile] = useState(false);
@@ -319,14 +320,19 @@ export default function About() {
             <p className={`text-lg mb-8 ${theme === 'dark' ? 'text-neutral-300' : 'text-gray-600'}`}>
               Join our community to connect with like-minded developers, access exclusive resources, and take your skills to the next level.
             </p>
-            <a
-              href="https://gdg.community.dev/gdg-on-campus-b-v-raju-institute-of-technology-narsapur-india/"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-block px-8 py-4 bg-blue-500 text-white font-bold rounded-full hover:scale-105 hover:bg-blue-600 transition-all shadow-lg"
-            >
-              Join GDGOC BVRIT
-            </a>
+            <div className="flex justify-center">
+              <HoverBorderGradient
+                containerClassName="rounded-full"
+                as="a"
+                href="https://gdg.community.dev/gdg-on-campus-b-v-raju-institute-of-technology-narsapur-india/"
+                target="_blank"
+                rel="noreferrer"
+                className={`px-8 py-4 font-bold ${theme === 'dark' ? 'bg-black text-white' : 'bg-white text-gray-900'
+                  }`}
+              >
+                Join GDGOC BVRIT
+              </HoverBorderGradient>
+            </div>
           </div>
         </section>
 
