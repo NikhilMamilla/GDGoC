@@ -9,12 +9,12 @@ export default function Contact() {
   const { theme } = useTheme();
 
   // -------- HANDLE CONTACT FORM SUBMIT --------
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const name = e.target[0].value;
-    const email = e.target[1].value;
-    const message = e.target[2].value;
+    const name = (e.target as any)[0].value;
+    const email = (e.target as any)[1].value;
+    const message = (e.target as any)[2].value;
 
     try {
       const res = await fetch("http://localhost:5000/contact", {
@@ -27,7 +27,7 @@ export default function Contact() {
 
       if (data.success) {
         alert("Message Sent Successfully!");
-        e.target.reset();
+        (e.target as HTMLFormElement).reset();
       } else {
         alert("Failed to send message.");
       }
@@ -42,60 +42,80 @@ export default function Contact() {
 
       {/* Background Grid */}
       <div
-        className="absolute inset-0 -z-10 bg-black 
-          [background-size:40px_40px]
-          [background-image:linear-gradient(to_right,#1a1a1a_1px,transparent_1px),
-          linear-gradient(to_bottom,#1a1a1a_1px,transparent_1px)]"
+        className={`absolute inset-0 -z-10 [background-size:40px_40px] ${theme === 'dark'
+            ? 'bg-black [background-image:linear-gradient(to_right,#1a1a1a_1px,transparent_1px),linear-gradient(to_bottom,#1a1a1a_1px,transparent_1px)]'
+            : 'bg-[#F7F3E9] [background-image:linear-gradient(to_right,#e8e4d9_1px,transparent_1px),linear-gradient(to_bottom,#e8e4d9_1px,transparent_1px)]'
+          }`}
       />
 
       {/* Radial Mask */}
       <div
-        className="absolute inset-0 -z-10 bg-black 
-          [mask-image:radial-gradient(700px_400px_at_center,transparent_20%,black)]"
+        className={`absolute inset-0 -z-10 ${theme === 'dark'
+            ? 'bg-black [mask-image:radial-gradient(700px_400px_at_center,transparent_20%,black)]'
+            : 'bg-[#F7F3E9] [mask-image:radial-gradient(700px_400px_at_center,transparent_20%,#F7F3E9)]'
+          }`}
       />
 
       {/* Main Content */}
       <div className="relative z-20 w-full flex flex-col items-center py-16 px-6">
 
-        <HeadingNText title="Contact Us" />
-
-        <p className="text-neutral-300 text-center max-w-2xl mb-10">
-          Have questions, suggestions, or want to collaborate?<br />
-          We’d love to hear from you!
-        </p>
+        <HeadingNText title="Contact Us">
+          <p className={`text-center max-w-2xl mb-10 ${theme === 'dark' ? 'text-neutral-300' : 'text-gray-600'
+            }`}>
+            Have questions, suggestions, or want to collaborate?<br />
+            We'd love to hear from you!
+          </p>
+        </HeadingNText>
 
         {/* Split Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 w-full max-w-6xl">
 
           {/* LEFT — CONTACT FORM */}
-          <div className="bg-[#101010] border border-white/10 rounded-xl p-8 shadow-xl">
-            <h2 className="text-2xl font-bold mb-6 text-center">Send Us a Message</h2>
+          <div className={`border rounded-xl p-8 shadow-lg transition-colors ${theme === 'dark'
+              ? 'bg-[#101010] border-white/10'
+              : 'bg-white border-gray-200'
+            }`}>
+            <h2 className="text-2xl font-bold mb-6 text-center bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+              Send Us a Message
+            </h2>
 
             <form className="space-y-6" onSubmit={handleSubmit}>
               <input
                 type="text"
                 placeholder="Your Name"
                 required
-                className="w-full p-3 rounded-lg bg-black border border-white/20 text-white focus:border-blue-400 outline-none"
+                className={`w-full p-3 rounded-lg border outline-none transition-colors ${theme === 'dark'
+                    ? 'bg-black border-white/20 text-white focus:border-blue-400'
+                    : 'bg-white border-gray-300 text-gray-900 focus:border-blue-500'
+                  }`}
               />
 
               <input
                 type="email"
                 placeholder="Your Email"
                 required
-                className="w-full p-3 rounded-lg bg-black border border-white/20 text-white focus:border-blue-400 outline-none"
+                className={`w-full p-3 rounded-lg border outline-none transition-colors ${theme === 'dark'
+                    ? 'bg-black border-white/20 text-white focus:border-blue-400'
+                    : 'bg-white border-gray-300 text-gray-900 focus:border-blue-500'
+                  }`}
               />
 
               <textarea
                 placeholder="Your Message"
-                rows="5"
+                rows={5}
                 required
-                className="w-full p-3 rounded-lg bg-black border border-white/20 text-white focus:border-blue-400 outline-none"
+                className={`w-full p-3 rounded-lg border outline-none transition-colors ${theme === 'dark'
+                    ? 'bg-black border-white/20 text-white focus:border-blue-400'
+                    : 'bg-white border-gray-300 text-gray-900 focus:border-blue-500'
+                  }`}
               ></textarea>
 
-              {/* NEW GDG HOVER BORDER BUTTON (NOW SUBMIT WORKS!) */}
               <div className="flex justify-center">
-                <HoverBorderGradient as="button" type="submit" className="px-10 py-3">
+                <HoverBorderGradient
+                  as="button"
+                  className={`px-10 py-3 ${theme === 'dark' ? 'bg-black text-white' : 'bg-white text-gray-900'
+                    }`}
+                >
                   Send Message
                 </HoverBorderGradient>
               </div>
@@ -110,13 +130,17 @@ export default function Contact() {
               href="https://www.instagram.com/gdgc.bvritn"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#101010] border border-white/10 rounded-xl p-6 shadow-lg
-                flex items-center gap-4 hover:scale-[1.03] transition-all"
+              className={`border rounded-xl p-6 shadow-md flex items-center gap-4 hover:scale-[1.03] transition-all ${theme === 'dark'
+                  ? 'bg-[#101010] border-white/10 hover:shadow-lg'
+                  : 'bg-white border-gray-200 hover:shadow-lg'
+                }`}
             >
               <FaInstagram className="text-4xl text-pink-400" />
               <div>
                 <h3 className="text-lg font-semibold">Instagram</h3>
-                <p className="text-neutral-400 text-sm">@gdgc.bvritn</p>
+                <p className={`text-sm ${theme === 'dark' ? 'text-neutral-400' : 'text-gray-600'}`}>
+                  @gdgc.bvritn
+                </p>
               </div>
             </a>
 
@@ -125,13 +149,17 @@ export default function Contact() {
               href="https://www.linkedin.com/company/gdg-bvrit"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#101010] border border-white/10 rounded-xl p-6 shadow-lg
-                flex items-center gap-4 hover:scale-[1.03] transition-all"
+              className={`border rounded-xl p-6 shadow-md flex items-center gap-4 hover:scale-[1.03] transition-all ${theme === 'dark'
+                  ? 'bg-[#101010] border-white/10 hover:shadow-lg'
+                  : 'bg-white border-gray-200 hover:shadow-lg'
+                }`}
             >
               <FaLinkedin className="text-4xl text-blue-400" />
               <div>
                 <h3 className="text-lg font-semibold">LinkedIn</h3>
-                <p className="text-neutral-400 text-sm">GDG BVRIT</p>
+                <p className={`text-sm ${theme === 'dark' ? 'text-neutral-400' : 'text-gray-600'}`}>
+                  GDG BVRIT
+                </p>
               </div>
             </a>
 
@@ -140,32 +168,44 @@ export default function Contact() {
               href="https://github.com/gdgoc-bvrit"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#101010] border border-white/10 rounded-xl p-6 shadow-lg
-                flex items-center gap-4 hover:scale-[1.03] transition-all"
+              className={`border rounded-xl p-6 shadow-md flex items-center gap-4 hover:scale-[1.03] transition-all ${theme === 'dark'
+                  ? 'bg-[#101010] border-white/10 hover:shadow-lg'
+                  : 'bg-white border-gray-200 hover:shadow-lg'
+                }`}
             >
-              <FaGithub className="text-4xl text-gray-300" />
+              <FaGithub className={`text-4xl ${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`} />
               <div>
                 <h3 className="text-lg font-semibold">GitHub</h3>
-                <p className="text-neutral-400 text-sm">github.com/gdgoc-bvrit</p>
+                <p className={`text-sm ${theme === 'dark' ? 'text-neutral-400' : 'text-gray-600'}`}>
+                  github.com/gdgoc-bvrit
+                </p>
               </div>
             </a>
 
             {/* Email */}
             <a
               href="mailto:gdgoc@bvrit.ac.in"
-              className="bg-[#101010] border border-white/10 rounded-xl p-6 shadow-lg
-                flex items-center gap-4 hover:scale-[1.03] transition-all"
+              className={`border rounded-xl p-6 shadow-md flex items-center gap-4 hover:scale-[1.03] transition-all ${theme === 'dark'
+                  ? 'bg-[#101010] border-white/10 hover:shadow-lg'
+                  : 'bg-white border-gray-200 hover:shadow-lg'
+                }`}
             >
               <div className="text-3xl text-red-400">📩</div>
               <div>
                 <h3 className="text-lg font-semibold">Email Us</h3>
-                <p className="text-neutral-400 text-sm">gdgoc@bvrit.ac.in</p>
+                <p className={`text-sm ${theme === 'dark' ? 'text-neutral-400' : 'text-gray-600'}`}>
+                  gdgoc@bvrit.ac.in
+                </p>
               </div>
             </a>
 
           </div>
         </div>
       </div>
+
+      {/* Gradient transition to footer - positioned at bottom */}
+      <div className={`absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent pointer-events-none ${theme === 'dark' ? 'to-black' : 'to-[#F0F4F8]'
+        }`}></div>
     </div>
   );
 }
