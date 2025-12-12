@@ -8,41 +8,33 @@ export default function TeamCard({ name, role, img, linkedin, github, phone }) {
   return (
     <div className="relative group">
 
-      {/* Card Container */}
+      {/* Card Container - Optimized for performance */}
       <div
         className={`
           relative rounded-2xl p-6 
-          backdrop-blur-2xl
           border 
-          shadow-[0_4px_20px_rgba(0,0,0,0.08)]
-          group-hover:shadow-[0_8px_40px_rgba(0,0,0,0.12)]
-          transition-all duration-500 ease-out
+          shadow-lg
+          hover:shadow-xl
+          transition-shadow duration-300
           ${theme === 'dark'
-            ? 'bg-[#1F2937]/90 border-white/10'
-            : 'bg-white/90 border-gray-200'
+            ? 'bg-[#1F2937] border-white/10'
+            : 'bg-white border-gray-200'
           }
         `}
       >
-        {/* Spotlight Glow */}
-        <div
-          className={`
-          absolute inset-x-0 -top-6 mx-auto w-40 h-40 
-          rounded-full blur-2xl
-          ${theme === 'dark' ? 'bg-blue-500/10' : 'bg-blue-400/10'}
-        `}
-        ></div>
 
-        {/* Profile Image */}
+        {/* Profile Image - Lazy loading + Grayscale effect */}
         <div className={`w-full h-64 rounded-xl overflow-hidden shadow-md ${theme === 'dark' ? 'shadow-black/50' : ''
           }`}>
           <img
             src={img}
             alt={name}
+            loading="lazy"
             className="
               w-full h-full object-cover
               filter grayscale group-hover:grayscale-0
               transition-all duration-500
-              group-hover:scale-110
+              group-hover:scale-105
             "
           />
         </div>
@@ -78,7 +70,7 @@ export default function TeamCard({ name, role, img, linkedin, github, phone }) {
               rel="noopener noreferrer"
               className={`
                 text-2xl 
-                transition-all duration-300
+                transition-all duration-200
                 hover:scale-110
                 ${theme === 'dark'
                   ? 'text-neutral-400 hover:text-blue-400'
@@ -97,7 +89,7 @@ export default function TeamCard({ name, role, img, linkedin, github, phone }) {
               rel="noopener noreferrer"
               className={`
                 text-2xl 
-                transition-all duration-300
+                transition-all duration-200
                 hover:scale-110
                 ${theme === 'dark'
                   ? 'text-neutral-400 hover:text-white'

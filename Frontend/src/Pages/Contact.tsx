@@ -43,16 +43,16 @@ export default function Contact() {
       {/* Background Grid */}
       <div
         className={`absolute inset-0 -z-10 [background-size:40px_40px] ${theme === 'dark'
-            ? 'bg-black [background-image:linear-gradient(to_right,#1a1a1a_1px,transparent_1px),linear-gradient(to_bottom,#1a1a1a_1px,transparent_1px)]'
-            : 'bg-[#F7F3E9] [background-image:linear-gradient(to_right,#e8e4d9_1px,transparent_1px),linear-gradient(to_bottom,#e8e4d9_1px,transparent_1px)]'
+          ? 'bg-black [background-image:linear-gradient(to_right,#1a1a1a_1px,transparent_1px),linear-gradient(to_bottom,#1a1a1a_1px,transparent_1px)]'
+          : 'bg-[#F7F3E9] [background-image:linear-gradient(to_right,#e8e4d9_1px,transparent_1px),linear-gradient(to_bottom,#e8e4d9_1px,transparent_1px)]'
           }`}
       />
 
       {/* Radial Mask */}
       <div
         className={`absolute inset-0 -z-10 ${theme === 'dark'
-            ? 'bg-black [mask-image:radial-gradient(700px_400px_at_center,transparent_20%,black)]'
-            : 'bg-[#F7F3E9] [mask-image:radial-gradient(700px_400px_at_center,transparent_20%,#F7F3E9)]'
+          ? 'bg-black [mask-image:radial-gradient(700px_400px_at_center,transparent_20%,black)]'
+          : 'bg-[#F7F3E9] [mask-image:radial-gradient(700px_400px_at_center,transparent_20%,#F7F3E9)]'
           }`}
       />
 
@@ -72,8 +72,8 @@ export default function Contact() {
 
           {/* LEFT — CONTACT FORM */}
           <div className={`border rounded-xl p-8 shadow-lg transition-colors ${theme === 'dark'
-              ? 'bg-[#101010] border-white/10'
-              : 'bg-white border-gray-200'
+            ? 'bg-[#101010] border-white/10'
+            : 'bg-white border-gray-200'
             }`}>
             <h2 className="text-2xl font-bold mb-6 text-center bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
               Send Us a Message
@@ -85,8 +85,8 @@ export default function Contact() {
                 placeholder="Your Name"
                 required
                 className={`w-full p-3 rounded-lg border outline-none transition-colors ${theme === 'dark'
-                    ? 'bg-black border-white/20 text-white focus:border-blue-400'
-                    : 'bg-white border-gray-300 text-gray-900 focus:border-blue-500'
+                  ? 'bg-black border-white/20 text-white focus:border-blue-400'
+                  : 'bg-white border-gray-300 text-gray-900 focus:border-blue-500'
                   }`}
               />
 
@@ -95,8 +95,8 @@ export default function Contact() {
                 placeholder="Your Email"
                 required
                 className={`w-full p-3 rounded-lg border outline-none transition-colors ${theme === 'dark'
-                    ? 'bg-black border-white/20 text-white focus:border-blue-400'
-                    : 'bg-white border-gray-300 text-gray-900 focus:border-blue-500'
+                  ? 'bg-black border-white/20 text-white focus:border-blue-400'
+                  : 'bg-white border-gray-300 text-gray-900 focus:border-blue-500'
                   }`}
               />
 
@@ -105,8 +105,8 @@ export default function Contact() {
                 rows={5}
                 required
                 className={`w-full p-3 rounded-lg border outline-none transition-colors ${theme === 'dark'
-                    ? 'bg-black border-white/20 text-white focus:border-blue-400'
-                    : 'bg-white border-gray-300 text-gray-900 focus:border-blue-500'
+                  ? 'bg-black border-white/20 text-white focus:border-blue-400'
+                  : 'bg-white border-gray-300 text-gray-900 focus:border-blue-500'
                   }`}
               ></textarea>
 
@@ -125,79 +125,121 @@ export default function Contact() {
           {/* RIGHT — SOCIAL CARDS */}
           <div className="flex flex-col gap-6">
 
-            {/* Instagram */}
-            <a
-              href="https://www.instagram.com/gdgc.bvritn"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`border rounded-xl p-6 shadow-md flex items-center gap-4 hover:scale-[1.03] transition-all ${theme === 'dark'
+            {/* Row 1: Instagram & LinkedIn */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {/* Instagram */}
+              <a
+                href="https://www.instagram.com/gdgc.bvritn"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`border rounded-xl p-6 shadow-md flex items-center gap-4 hover:scale-[1.03] transition-all ${theme === 'dark'
                   ? 'bg-[#101010] border-white/10 hover:shadow-lg'
                   : 'bg-white border-gray-200 hover:shadow-lg'
-                }`}
-            >
-              <FaInstagram className="text-4xl text-pink-400" />
-              <div>
-                <h3 className="text-lg font-semibold">Instagram</h3>
-                <p className={`text-sm ${theme === 'dark' ? 'text-neutral-400' : 'text-gray-600'}`}>
-                  @gdgc.bvritn
-                </p>
-              </div>
-            </a>
+                  }`}
+              >
+                <FaInstagram className="text-4xl text-pink-400" />
+                <div>
+                  <h3 className="text-lg font-semibold">Instagram</h3>
+                  <p className={`text-sm ${theme === 'dark' ? 'text-neutral-400' : 'text-gray-600'}`}>
+                    @gdgc.bvritn
+                  </p>
+                </div>
+              </a>
 
-            {/* LinkedIn */}
-            <a
-              href="https://www.linkedin.com/company/gdg-bvrit"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`border rounded-xl p-6 shadow-md flex items-center gap-4 hover:scale-[1.03] transition-all ${theme === 'dark'
+              {/* LinkedIn */}
+              <a
+                href="https://www.linkedin.com/company/gdg-bvrit"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`border rounded-xl p-6 shadow-md flex items-center gap-4 hover:scale-[1.03] transition-all ${theme === 'dark'
                   ? 'bg-[#101010] border-white/10 hover:shadow-lg'
                   : 'bg-white border-gray-200 hover:shadow-lg'
-                }`}
-            >
-              <FaLinkedin className="text-4xl text-blue-400" />
-              <div>
-                <h3 className="text-lg font-semibold">LinkedIn</h3>
-                <p className={`text-sm ${theme === 'dark' ? 'text-neutral-400' : 'text-gray-600'}`}>
-                  GDG BVRIT
-                </p>
-              </div>
-            </a>
+                  }`}
+              >
+                <FaLinkedin className="text-4xl text-blue-400" />
+                <div>
+                  <h3 className="text-lg font-semibold">LinkedIn</h3>
+                  <p className={`text-sm ${theme === 'dark' ? 'text-neutral-400' : 'text-gray-600'}`}>
+                    GDG BVRIT
+                  </p>
+                </div>
+              </a>
+            </div>
 
-            {/* GitHub */}
-            <a
-              href="https://github.com/gdgoc-bvrit"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`border rounded-xl p-6 shadow-md flex items-center gap-4 hover:scale-[1.03] transition-all ${theme === 'dark'
+            {/* Row 2: GitHub & Email */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {/* GitHub */}
+              <a
+                href="https://github.com/gdgoc-bvrit"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`border rounded-xl p-6 shadow-md flex items-center gap-4 hover:scale-[1.03] transition-all ${theme === 'dark'
                   ? 'bg-[#101010] border-white/10 hover:shadow-lg'
                   : 'bg-white border-gray-200 hover:shadow-lg'
-                }`}
-            >
-              <FaGithub className={`text-4xl ${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`} />
-              <div>
-                <h3 className="text-lg font-semibold">GitHub</h3>
-                <p className={`text-sm ${theme === 'dark' ? 'text-neutral-400' : 'text-gray-600'}`}>
-                  github.com/gdgoc-bvrit
-                </p>
-              </div>
-            </a>
+                  }`}
+              >
+                <FaGithub className={`text-4xl ${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`} />
+                <div>
+                  <h3 className="text-lg font-semibold">GitHub</h3>
+                  <p className={`text-sm ${theme === 'dark' ? 'text-neutral-400' : 'text-gray-600'}`}>
+                    gdgoc-bvrit
+                  </p>
+                </div>
+              </a>
 
-            {/* Email */}
-            <a
-              href="mailto:gdgoc@bvrit.ac.in"
-              className={`border rounded-xl p-6 shadow-md flex items-center gap-4 hover:scale-[1.03] transition-all ${theme === 'dark'
+              {/* Email */}
+              <a
+                href="mailto:gdgoc@bvrit.ac.in"
+                className={`border rounded-xl p-6 shadow-md flex items-center gap-4 hover:scale-[1.03] transition-all ${theme === 'dark'
                   ? 'bg-[#101010] border-white/10 hover:shadow-lg'
                   : 'bg-white border-gray-200 hover:shadow-lg'
-                }`}
-            >
-              <div className="text-3xl text-red-400">📩</div>
-              <div>
-                <h3 className="text-lg font-semibold">Email Us</h3>
-                <p className={`text-sm ${theme === 'dark' ? 'text-neutral-400' : 'text-gray-600'}`}>
-                  gdgoc@bvrit.ac.in
-                </p>
+                  }`}
+              >
+                <div className="text-3xl text-red-400">📩</div>
+                <div>
+                  <h3 className="text-lg font-semibold">Email Us</h3>
+                  <p className={`text-sm ${theme === 'dark' ? 'text-neutral-400' : 'text-gray-600'}`}>
+                    gdgoc@bvrit.ac.in
+                  </p>
+                </div>
+              </a>
+            </div>
+
+            {/* Contact Developers Section */}
+            <div className="mt-4">
+              <h3 className={`text-xl font-bold mb-4 text-center ${theme === 'dark' ? 'text-white' : 'text-gray-900'
+                }`}>
+                Contact Developers
+              </h3>
+
+              <div className="flex flex-col gap-4">
+                {/* Developer 1 - Nikhil Mamilla */}
+                <div
+                  className={`border rounded-xl p-6 shadow-md ${theme === 'dark'
+                      ? 'bg-[#101010] border-white/10'
+                      : 'bg-white border-gray-200'
+                    }`}
+                >
+                  <h4 className="text-lg font-semibold mb-2">Nikhil Mamilla</h4>
+                  <p className={`text-sm ${theme === 'dark' ? 'text-neutral-400' : 'text-gray-600'}`}>
+                    📞 +91 78420 70463
+                  </p>
+                </div>
+
+                {/* Developer 2 - Dubbasi Mukundh */}
+                <div
+                  className={`border rounded-xl p-6 shadow-md ${theme === 'dark'
+                      ? 'bg-[#101010] border-white/10'
+                      : 'bg-white border-gray-200'
+                    }`}
+                >
+                  <h4 className="text-lg font-semibold mb-2">Dubbasi Mukundh</h4>
+                  <p className={`text-sm ${theme === 'dark' ? 'text-neutral-400' : 'text-gray-600'}`}>
+                    📞 +91 73861 99296
+                  </p>
+                </div>
               </div>
-            </a>
+            </div>
 
           </div>
         </div>

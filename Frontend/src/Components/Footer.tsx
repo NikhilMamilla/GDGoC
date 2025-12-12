@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import {
   FaLinkedin,
@@ -14,8 +13,8 @@ const Footer = () => {
 
   return (
     <footer className={`w-full border-t transition-colors ${theme === 'dark'
-      ? 'bg-black text-white border-[#4cdef5]/20'
-      : 'bg-[#F0F4F8] text-gray-900 border-gray-300'
+        ? 'bg-black text-white border-[#4cdef5]/20'
+        : 'bg-[#F0F4F8] text-gray-900 border-gray-300'
       }`}>
       <div className="max-w-7xl mx-auto px-6 py-8">
 
@@ -26,7 +25,7 @@ const Footer = () => {
           <div className="flex items-center gap-3 justify-center">
             <img src="logo1.jpg" alt="GDG Logo" className="w-12 h-12 object-contain" />
             <h1 className="text-3xl font-bold" style={{ fontFamily: 'Revamped, sans-serif' }}>
-              GDGoC BVRIT
+              GDG On Campus BVRIT
             </h1>
           </div>
 
@@ -76,7 +75,7 @@ const Footer = () => {
           </div>
 
           {/* Contact Info */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-sm">
+          {/* <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-sm">
             <a
               href="tel:+917842070463"
               className={`flex items-center gap-2 transition ${theme === 'dark' ? 'text-gray-300 hover:text-[#4cdef5]' : 'text-gray-700 hover:text-blue-500'
@@ -93,7 +92,7 @@ const Footer = () => {
               <FaEnvelope className="w-4 h-4" />
               gdgoc@bvrit.ac.in
             </a>
-          </div>
+          </div> */}
 
         </div>
 

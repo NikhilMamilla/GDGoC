@@ -1,19 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "../index.css";
 import HeadingNText from "../Components/HeadingNText";
 import { useTheme } from "../context/ThemeContext";
 import { HoverBorderGradient } from "../Components/ui/hover-border-gradient";
 
 export default function About() {
-  const [isMobile, setIsMobile] = useState(false);
   const { theme } = useTheme();
-
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
 
   return (
     <div className={`relative w-full min-h-screen transition-colors ${theme === 'dark' ? 'bg-black text-white' : 'bg-[#F7F3E9] text-gray-900'
@@ -158,7 +150,7 @@ export default function About() {
                   }`}
               >
                 <img
-                  src="/Jagadeesh sir.webp"
+                  src="/jagadeesh.webp"
                   alt="Jagadeesh"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
@@ -177,7 +169,7 @@ export default function About() {
                   }`}
               >
                 <img
-                  src="/srinuvasarao.webp"
+                  src="/srinu.webp"
                   alt="Srinuvasarao"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
@@ -323,11 +315,9 @@ export default function About() {
             <div className="flex justify-center">
               <HoverBorderGradient
                 containerClassName="rounded-full"
-                as="a"
-                href="https://gdg.community.dev/gdg-on-campus-b-v-raju-institute-of-technology-narsapur-india/"
-                target="_blank"
-                rel="noreferrer"
-                className={`px-8 py-4 font-bold ${theme === 'dark' ? 'bg-black text-white' : 'bg-white text-gray-900'
+                as="button"
+                onClick={() => window.open('https://gdg.community.dev/gdg-on-campus-b-v-raju-institute-of-technology-narsapur-india/', '_blank')}
+                className={`px-8 py-4 font-bold cursor-pointer ${theme === 'dark' ? 'bg-black text-white' : 'bg-white text-gray-900'
                   }`}
               >
                 Join GDGOC BVRIT

@@ -10,7 +10,7 @@ export default function Events() {
       title: "GDG InnovateX Hackathon – Powered by Hack2Skill",
       date: "Last Date: December 20, 2025",
       venue: "Hybrid Mode",
-      img: "hack2.png",
+      img: "hack.jpg",
       description:
         "The first ever GDG On Campus BVRIT Hackathon! Students build real-world innovation using Google Technologies, AI tools, and SDG-focused ideas.",
       status: "ONGOING",
@@ -25,18 +25,6 @@ export default function Events() {
       description:
         "A power-packed session on modern Google developer tools—Firebase Authentication, Firestore, Flutter UI toolkit, ML Kit smart features, and Google Maps Platform integration.",
       status: "UPCOMING",
-    },
-  ];
-
-  const pastEvents = [
-    {
-      title: "AI Workshop – Launch of GDG On Campus BVRIT",
-      date: "October 10, 2025",
-      venue: "Chemical Seminar Hall",
-      img: "/images/events/aiworkshop.jpg",
-      description:
-        "The first-ever GDG On Campus event by BVRIT. Speakers Ashutosh Bhakare & Rachana Bhakare delivered an amazing hands-on AI session.",
-      time: "02:00 PM – 03:30 PM",
     },
   ];
 
@@ -67,8 +55,8 @@ export default function Events() {
             <div
               key={idx}
               className={`group border rounded-2xl p-5 relative overflow-hidden transition-all duration-300 ${theme === 'dark'
-                  ? 'bg-[#0f0f0f] border-white/10 hover:border-white/30 hover:shadow-xl'
-                  : 'bg-white border-gray-200 hover:border-gray-300 hover:shadow-xl'
+                ? 'bg-[#0f0f0f] border-white/10 hover:border-white/30 hover:shadow-xl'
+                : 'bg-white border-gray-200 hover:border-gray-300 hover:shadow-xl'
                 }`}
             >
               {/* IMAGE */}
@@ -83,8 +71,8 @@ export default function Events() {
               {/* STATUS BADGE */}
               <span
                 className={`text-xs px-3 py-1 font-bold rounded-full ${ev.status === "ONGOING"
-                    ? "bg-yellow-400 text-black"
-                    : "bg-green-400 text-black"
+                  ? "bg-yellow-400 text-black"
+                  : "bg-green-400 text-black"
                   }`}
               >
                 {ev.status}
@@ -105,18 +93,16 @@ export default function Events() {
 
               {/* Register button */}
               {ev.register && (
-                <div className="mt-5">
-                  <a
-                    href={ev.register}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`inline-flex items-center gap-2 px-6 py-2.5 rounded-lg font-semibold transition-all duration-300 ${theme === 'dark'
-                        ? 'bg-blue-500 text-white hover:bg-blue-600 shadow-lg hover:shadow-blue-500/50'
-                        : 'bg-blue-500 text-white hover:bg-blue-600 shadow-lg hover:shadow-blue-500/30'
+                <div className="flex justify-center mt-5">
+                  <HoverBorderGradient
+                    containerClassName="rounded-full"
+                    as="button"
+                    onClick={() => window.open(ev.register, '_blank')}
+                    className={`px-6 py-2.5 font-semibold cursor-pointer ${theme === 'dark' ? 'bg-black text-white' : 'bg-white text-gray-900'
                       }`}
                   >
                     Register Now 🚀
-                  </a>
+                  </HoverBorderGradient>
                 </div>
               )}
             </div>
@@ -138,7 +124,7 @@ export default function Events() {
             {/* Big Banner */}
             <div className="w-full h-80 rounded-xl overflow-hidden mb-8">
               <img
-                src="pe2.jpg"
+                src="pe5.jpeg"
                 alt="Past Event"
                 className="w-full h-full object-cover"
               />
@@ -170,7 +156,7 @@ export default function Events() {
             {/* PHOTO GALLERY */}
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mt-10">
               <img src="pe1.jpg" alt="Event 1" className="rounded-lg object-cover h-36 w-full" />
-              <img src="pe2.jpg" alt="Event 2" className="rounded-lg object-cover h-36 w-full" />
+              <img src="pe2.jpeg" alt="Event 2" className="rounded-lg object-cover h-36 w-full" />
               <img src="pe3.jpg" alt="Event 3" className="rounded-lg object-cover h-36 w-full" />
               <img src="pe4.jpg" alt="Event 4" className="rounded-lg object-cover h-36 w-full" />
             </div>

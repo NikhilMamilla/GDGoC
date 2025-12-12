@@ -115,7 +115,7 @@ const PillNavbar = () => {
             className={`fixed inset-0 z-[60] backdrop-blur flex flex-col items-center justify-center md:hidden ${theme === 'dark' ? 'bg-zinc-950/90' : 'bg-white/95'
               }`}
           >
-            <ul className={`space-y-8 text-2xl font-light ${theme === 'dark' ? 'text-zinc-100' : 'text-gray-900'
+            <ul className={`space-y-8 text-2xl font-light text-center ${theme === 'dark' ? 'text-zinc-100' : 'text-gray-900'
               }`}>
               {navItems.map((label) => {
                 const path =
