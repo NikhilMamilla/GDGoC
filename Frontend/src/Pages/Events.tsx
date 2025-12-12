@@ -166,7 +166,7 @@ export default function Events() {
       </div>
 
       {/* Gradient transition to footer - positioned at bottom */}
-      <div className={`absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent pointer-events-none ${theme === 'dark' ? 'to-black' : 'to-[#F0F4F8]'
+      <div className={`absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent pointer-events-none ${theme === 'dark' ? 'to-black' : 'to-[#F7F3E9]'
         }`}></div>
     </div>
   );

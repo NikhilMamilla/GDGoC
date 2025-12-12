@@ -12,7 +12,7 @@ const Footer = () => {
   return (
     <footer className={`w-full border-t transition-colors ${theme === 'dark'
       ? 'bg-black text-white border-[#4cdef5]/20'
-      : 'bg-[#F0F4F8] text-gray-900 border-gray-300'
+      : 'bg-[#F7F3E9] text-gray-900 border-gray-300'
       }`}>
       <div className="max-w-7xl mx-auto px-6 py-8">
 
