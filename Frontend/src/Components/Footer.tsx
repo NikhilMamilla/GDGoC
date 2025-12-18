@@ -96,7 +96,7 @@ const Footer = () => {
 
         <div className={`mt-6 pt-4 border-t text-center text-sm ${theme === 'dark' ? 'border-white/10 text-gray-400' : 'border-gray-300 text-gray-600'
           }`}>
-          © 2026 GDG on Campus BVRIT. All rights reserved.
+          © 2025 GDG on Campus BVRIT. All rights reserved.
         </div>
 
       </div>
