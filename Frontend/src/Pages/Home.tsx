@@ -15,34 +15,47 @@ function Home() {
                     <img
                         src="/gdgphoto.png"
                         alt="GDG Logo"
-                        className={`w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[28rem] lg:h-[28rem] -mb-12 sm:-mb-14 md:-mb-16 lg:-mb-20 object-contain ${theme === 'dark'
-                            ? 'drop-shadow-[0_8px_16px_rgba(66,133,244,0.4)]'
-                            : 'drop-shadow-[0_8px_16px_rgba(66,133,244,0.3)]'
-                            }`}
+                        className={`w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[28rem] lg:h-[28rem] -mb-12 sm:-mb-14 md:-mb-16 lg:-mb-20 object-contain ${
+                            theme === 'dark'
+                                ? 'drop-shadow-[0_8px_16px_rgba(66,133,244,0.4)]'
+                                : 'drop-shadow-[0_8px_16px_rgba(66,133,244,0.3)]'
+                        }`}
                     />
-                    <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-center leading-[1.45] mb-6">
-                        <span className={`bg-clip-text text-transparent ${theme === 'dark'
-                            ? 'bg-gradient-to-b from-[#6ba3ff] to-[#4285F4] drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]'
-                            : 'bg-gradient-to-b from-[#4285F4] to-[#1a6fd9] drop-shadow-sm'
-                            }`}>Google </span>
-                        <span className={`bg-clip-text text-transparent ${theme === 'dark'
-                            ? 'bg-gradient-to-b from-[#ff6b6b] to-[#DB4437] drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]'
-                            : 'bg-gradient-to-b from-[#EA4335] to-[#c5331d] drop-shadow-sm'
-                            }`}>Developer </span>
-                        <span className={`bg-clip-text text-transparent ${theme === 'dark'
-                            ? 'bg-gradient-to-b from-[#4dd17e] to-[#0F9D58] drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]'
-                            : 'bg-gradient-to-b from-[#34A853] to-[#2d8e47] drop-shadow-sm'
-                            }`}>Groups</span>
+
+                    {/* Heading */}
+                    <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.45] mb-6">
+                        <span className={`bg-clip-text text-transparent ${
+                            theme === 'dark'
+                                ? 'bg-gradient-to-b from-[#6ba3ff] to-[#4285F4]'
+                                : 'bg-gradient-to-b from-[#4285F4] to-[#1a6fd9]'
+                        }`}>Google </span>
+                        <span className={`bg-clip-text text-transparent ${
+                            theme === 'dark'
+                                ? 'bg-gradient-to-b from-[#ff6b6b] to-[#DB4437]'
+                                : 'bg-gradient-to-b from-[#EA4335] to-[#c5331d]'
+                        }`}>Developer </span>
+                        <span className={`bg-clip-text text-transparent ${
+                            theme === 'dark'
+                                ? 'bg-gradient-to-b from-[#4dd17e] to-[#0F9D58]'
+                                : 'bg-gradient-to-b from-[#34A853] to-[#2d8e47]'
+                        }`}>Groups</span>
                     </h2>
-                    <p className={`text-lg sm:text-xl md:text-2xl mb-4 font-medium tracking-wide ${theme === 'dark' ? 'text-gray-400' : 'text-gray-700'
-                        }`}>
+
+                    {/* Sub text */}
+                    <p className={`text-lg sm:text-xl md:text-2xl mb-4 ${
+                        theme === 'dark' ? 'text-gray-400' : 'text-gray-700'
+                    }`}>
                         BVRIT Narsapur
                     </p>
-                    <p className={`mt-2 sm:mt-4 md:mt-6 text-base sm:text-lg md:text-xl font-semibold tracking-wider ${theme === 'dark' ? 'text-gdg-yellow animate-pulse' : 'text-[#FBBC04]'
-                        }`}>
+
+                    <p className={`text-base sm:text-lg md:text-xl font-semibold ${
+                        theme === 'dark' ? 'text-gdg-yellow animate-pulse' : 'text-[#FBBC04]'
+                    }`}>
                         Learn • Connect • Grow
                     </p>
-                    <div className="flex justify-center mt-10 sm:mt-12 md:mt-14">
+
+                    {/* CTA */}
+                    <div className="mt-10">
                         <HoverBorderGradient
                             containerClassName="rounded-full"
                             as="button"
@@ -51,13 +64,28 @@ function Home() {
                             Know More
                         </HoverBorderGradient>
                     </div>
-                </section>
 
-                {/* Gradient transition to footer */}
-                <div className={`w-full h-32 ${theme === 'dark'
-                    ? 'bg-gradient-to-b from-transparent to-black'
-                    : 'bg-gradient-to-b from-transparent to-[#F0F4F8]'
-                    }`}></div>
+                    {/* Team Section */}
+                    <div className="mt-20 w-full flex flex-col items-center">
+                        <h3
+                            className={`mb-8 text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-wide ${
+                                theme === 'dark' ? 'text-gray-100' : 'text-gray-900'
+                            }`}
+                        >
+                            Our Team
+                        </h3>
+                        <img
+                            src="/Team.jpg"
+                            alt="GDG BVRIT Team"
+                            className={`w-full max-w-4xl rounded-2xl object-cover transition-all duration-300
+                            ${theme === 'dark'
+                                ? 'shadow-[0_16px_40px_rgba(0,0,0,0.6)]'
+                                : 'shadow-xl'
+                            }`}
+                        />
+                    </div>
+
+                </section>
             </div>
         </div>
     );
