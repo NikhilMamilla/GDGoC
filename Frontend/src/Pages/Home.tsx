@@ -1,8 +1,10 @@
 import { HoverBorderGradient } from "../Components/ui/hover-border-gradient";
 import { useTheme } from "../context/ThemeContext";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
     const { theme } = useTheme();
+    const navigate = useNavigate();
 
     return (
         <div className={`relative flex w-full items-center justify-center overflow-x-hidden transition-colors ${theme === 'dark' ? 'bg-black' : 'bg-[#F7F3E9]'
@@ -60,6 +62,7 @@ function Home() {
                             containerClassName="rounded-full"
                             as="button"
                             className={theme === 'dark' ? 'bg-black text-white' : 'bg-white text-gray-900'}
+                            onClick={() => navigate('/about')}
                         >
                             Know More
                         </HoverBorderGradient>
