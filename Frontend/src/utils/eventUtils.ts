@@ -43,7 +43,7 @@ export async function fetchEventsFromSheet(): Promise<EventData[]> {
     const data = JSON.parse(jsonString);
     
     // Extract column headers from data.table.cols
-    const headers = data.table.cols.map((col: any, index: number) => {
+    const headers = data.table.cols.map((col: any) => {
       const label = col.label || "";
       const value = String(label).toLowerCase().trim();
       return value;
@@ -51,7 +51,7 @@ export async function fetchEventsFromSheet(): Promise<EventData[]> {
     
     // Map all rows to objects
     const events = data.table.rows
-      .map((row: any, rowIndex: number) => {
+      .map((row: any) => {
         if (!row || !row.c) {
           return null;
         }
@@ -167,7 +167,7 @@ export function classifyEvents(events: EventData[]) {
       // Upcoming: status === "upcoming" && startDate > now
       else if (status === "upcoming" && startDate > now) {
         // Only include events within 7 days (1 week)
-        const daysUntilEvent = (startDate - now) / (1000 * 60 * 60 * 24);
+        const daysUntilEvent = (startDate.getTime() - now.getTime()) / (1000 * 60 * 60 * 24);
         if (daysUntilEvent <= 7) {
           upcoming.push(event);
         }
