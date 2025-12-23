@@ -56,7 +56,6 @@ const Loader = ({ onLoadingComplete }) => {
         <div
             style={{
                 width: '100vw',
-                height: '100vh',
                 height: '100dvh', // Modern mobile viewport fix
                 backgroundColor: theme === 'dark' ? '#000000' : '#F7F3E9',
                 display: 'flex',
