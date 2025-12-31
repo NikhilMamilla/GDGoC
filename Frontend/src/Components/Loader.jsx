@@ -8,7 +8,7 @@ const Loader = ({ onLoadingComplete }) => {
     const [phraseIndex, setPhraseIndex] = useState(0);
     const [isTyping, setIsTyping] = useState(true);
 
-    const phrases = ['Loading innovation...', 'Learn • Connect • Grow....'];
+    const phrases = ['Loading innovation...'];
 
     useEffect(() => {
         const currentPhrase = phrases[phraseIndex];

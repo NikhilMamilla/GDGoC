@@ -120,7 +120,7 @@ export default function About() {
 
               <div className="mt-4 text-center">
                 <div className="text-lg font-semibold">Dr. Ch. Madhu Babu</div>
-                <div className="text-sm text-blue-400">Head of Dept. CSE</div>
+                <div className="text-sm text-blue-400">Chapter Advisor</div>
               </div>
             </div>
 
@@ -139,7 +139,7 @@ export default function About() {
 
               <div className="mt-4 text-center">
                 <div className="text-lg font-semibold">Dr. L. Pallavi</div>
-                <div className="text-sm text-blue-400">Assoc. Head of Dept. CSE</div>
+                <div className="text-sm text-blue-400">Strategic Advisor</div>
               </div>
             </div>
 
@@ -158,7 +158,7 @@ export default function About() {
 
               <div className="mt-4 text-center">
                 <div className="text-lg font-semibold">Mr. Jagadeesh</div>
-                <div className="text-sm text-blue-400">Faculty Coordinator</div>
+                <div className="text-sm text-blue-400">Community Mentor</div>
               </div>
             </div>
 
@@ -177,7 +177,7 @@ export default function About() {
 
               <div className="mt-4 text-center">
                 <div className="text-lg font-semibold">Mr. Srinuvasarao</div>
-                <div className="text-sm text-blue-400">Faculty Coordinator</div>
+                <div className="text-sm text-blue-400">Programs & Operations Mentor</div>
               </div>
             </div>
 
